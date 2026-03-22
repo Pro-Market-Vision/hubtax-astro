@@ -135,26 +135,9 @@ const differentiators = [
   }
   .partner-visual img { width: 100%; }
 
-  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1); }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
-
   @media (max-width: 768px) {
     .page-hero { padding: 100px 0 48px; }
     .diff-grid { grid-template-columns: 1fr; }
     .partner-split { grid-template-columns: 1fr; gap: 32px; }
   }
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-  });
-</script>

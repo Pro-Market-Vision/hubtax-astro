@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Page Not Found — HubTax" description="The page you're looking for doesn't exist.">
+  <Header />
+
+  <section class="not-found">
+    <div class="container" style="text-align:center;">
+      <div class="not-found-content fade-up">
+        <span class="label">404</span>
+        <h1>Page not found</h1>
+        <p>The page you're looking for doesn't exist or has been moved.</p>
+        <div class="not-found-ctas">
+          <a href="/" class="btn btn-primary">Back to Home</a>
+          <a href="/book-a-demo" class="btn btn-ghost">Book a Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .not-found {
+    padding: 160px 0 120px;
+    min-height: 60vh;
+    display: flex; align-items: center;
+  }
+  .not-found-content { max-width: 480px; margin: 0 auto; }
+  .not-found h1 {
+    font-size: 2.4rem; font-weight: 800; margin-bottom: 12px;
+  }
+  .not-found p {
+    font-size: 1.05rem; color: var(--ht-text); margin-bottom: 28px;
+  }
+  .not-found-ctas { display: flex; gap: 14px; justify-content: center; }
+</style>

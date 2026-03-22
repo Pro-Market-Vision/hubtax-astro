@@ -26,9 +26,8 @@ const siteUrl = "https://hubtax.io";
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -40,6 +39,21 @@ const siteUrl = "https://hubtax.io";
 </head>
 <body>
   <slot />
+
+  <!-- Scroll fade-in observer -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+    });
+  </script>
 
   <!-- Sticky mobile Book a Demo bar -->
   <div class="mobile-sticky-cta" id="mobileStickyBar">
@@ -203,6 +217,10 @@ const siteUrl = "https://hubtax.io";
     box-shadow: 0 6px 28px rgba(4,107,210,.45);
   }
   .mobile-sticky-btn svg { flex-shrink: 0; }
+
+  /* Scroll fade-in animations */
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1); }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
 
   @media (max-width: 768px) {
     .mobile-sticky-cta { display: block; }
