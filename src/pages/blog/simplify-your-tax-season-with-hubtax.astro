@@ -1,0 +1,127 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CtaSection from '../../components/CtaSection.astro';
+---
+
+<Layout title="Simplify Your Tax Season with HubTax: Your Go-To AI Tax Experts" description="Tax season doesn't have to be stressful. Learn how HubTax's AI tools streamline your entire tax workflow.">
+  <Header />
+
+  <article class="blog-post">
+    <div class="container">
+      <div class="post-header fade-up">
+        <a href="/blog" class="back-link">&larr; Back to Blog</a>
+        <div class="blog-meta">
+          <span>May 30, 2024</span>
+          <span class="meta-dot"></span>
+          <span>HubTax Team</span>
+        </div>
+        <h1>Simplify Your Tax Season with HubTax: Your Go-To <span class="gradient-text">AI Tax Experts</span></h1>
+        <div class="post-hero-image">
+          <img src="/images/Hubtax-Pictures-Section-2.png" alt="HubTax Platform" />
+        </div>
+      </div>
+
+      <div class="post-content fade-up">
+        <p>Tax season can be stressful and overwhelming, but with the right tools and guidance, it doesn't have to be. HubTax specializes in streamlining the tax experience through AI-powered, personalized solutions that save you time and reduce errors.</p>
+
+        <h2>Why Choose HubTax?</h2>
+
+        <h3>1. AI-Powered Expertise You Can Trust</h3>
+        <p>Our platform combines deep tax knowledge with cutting-edge AI technology. The intelligent knowledge base stays current with the latest tax laws, serving both individual and business clients through tailored, automated strategies. OCR scanning instantly digitizes your documents, while smart algorithms cross-reference regulations to ensure compliance.</p>
+
+        <h3>2. Personalized Service</h3>
+        <p>HubTax recognizes that each client's circumstances are unique. Our AI learns your specific tax patterns and customizes its approach to maximize your tax benefits — whether you're a sole proprietor or managing a multi-state corporation.</p>
+
+        <h3>3. Comprehensive AI-Enhanced Solutions</h3>
+        <p>From tax preparation and planning to audit support and consultation, HubTax's services span the full spectrum of tax needs. Our AI automates routine tasks like document categorization, deadline tracking, and notice management, freeing you to focus on strategic decisions.</p>
+
+        <h3>4. Commitment to Accuracy</h3>
+        <p>With AI-assisted verification, meticulous preparation, and automated regulatory compliance checks, HubTax minimizes errors and maximizes your confidence in every filing.</p>
+
+        <h2>Tips for a Stress-Free Tax Season</h2>
+        <ol>
+          <li><strong>Organize documents early</strong> — Use HubTax's AI-powered OCR to scan and categorize your W-2s, 1099s, and receipts as they arrive. No more last-minute scrambling.</li>
+          <li><strong>Maximize eligible deductions and credits</strong> — HubTax's knowledge base automatically identifies deductions and credits you might miss, ensuring you keep more of what you earn.</li>
+          <li><strong>Plan for future tax implications</strong> — Use HubTax's intelligent dashboards to model different scenarios and plan proactively for the year ahead.</li>
+          <li><strong>File electronically and early</strong> — HubTax's automated workflows ensure your returns are prepared, verified, and ready to file well before deadlines.</li>
+        </ol>
+
+        <h2>Get Started Today</h2>
+        <p>Ready to make this your best tax season yet? <a href="/book-a-demo">Schedule a demo</a> to see HubTax's AI-powered platform in action, or <a href="https://app.hubtax.io/register">sign up for free</a> to start simplifying your tax management today.</p>
+      </div>
+    </div>
+  </article>
+
+  <CtaSection />
+  <Footer />
+</Layout>
+
+<style>
+  .blog-post { padding: 120px 0 60px; }
+  .post-header { max-width: 740px; margin: 0 auto; text-align: center; }
+  .back-link {
+    font-family: var(--ht-font-display); font-size: .85rem; font-weight: 600;
+    color: var(--ht-blue); display: inline-flex; align-items: center; gap: 4px;
+    margin-bottom: 24px;
+  }
+  .back-link:hover { gap: 8px; }
+  .blog-meta {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    font-size: .82rem; color: var(--ht-muted); margin-bottom: 16px;
+    font-family: var(--ht-font-display); font-weight: 500;
+  }
+  .meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--ht-muted); }
+  .post-header h1 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800;
+    letter-spacing: -.04em; margin-bottom: 32px; line-height: 1.15;
+  }
+  .post-hero-image {
+    border-radius: 16px; overflow: hidden; margin-bottom: 48px;
+    box-shadow: 0 8px 32px rgba(15,23,42,.08);
+  }
+  .post-hero-image img { width: 100%; }
+
+  .post-content {
+    max-width: 680px; margin: 0 auto;
+  }
+  .post-content h2 {
+    font-size: 1.5rem; font-weight: 700; color: var(--ht-navy);
+    margin: 36px 0 14px; letter-spacing: -.02em;
+  }
+  .post-content h3 {
+    font-size: 1.15rem; font-weight: 700; color: var(--ht-navy);
+    margin: 24px 0 10px;
+  }
+  .post-content p {
+    font-size: 1.02rem; line-height: 1.8; color: var(--ht-text);
+    margin-bottom: 18px;
+  }
+  .post-content ol {
+    padding-left: 24px; margin-bottom: 24px;
+  }
+  .post-content li {
+    font-size: 1.02rem; line-height: 1.8; color: var(--ht-text);
+    margin-bottom: 12px;
+  }
+  .post-content a { color: var(--ht-blue); font-weight: 600; }
+  .post-content a:hover { text-decoration: underline; }
+
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1); }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  });
+</script>

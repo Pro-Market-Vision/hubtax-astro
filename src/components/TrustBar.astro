@@ -1,0 +1,56 @@
+---
+const logos = [
+  { src: '/images/HoltCat.avif', alt: 'HoltCat' },
+  { src: '/images/canva.png', alt: 'Canva' },
+  { src: '/images/coca_cola.png', alt: 'Coca Cola' },
+  { src: '/images/oxy.png', alt: 'Oxy' },
+  { src: '/images/lionsgate.avif', alt: 'Lionsgate' },
+  { src: '/images/carrefour.png', alt: 'Carrefour' },
+  { src: '/images/bd.png', alt: 'BD' },
+  { src: '/images/glossier.png', alt: 'Glossier' },
+  { src: '/images/universal.png', alt: 'Universal' },
+];
+---
+
+<section class="trust-bar fade-up">
+  <div class="container">
+    <p class="trust-label">Trusted by 225,000+ customers, from startups to enterprises</p>
+    <div class="trust-logos">
+      {logos.map(logo => (
+        <img src={logo.src} alt={logo.alt} loading="lazy" />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust-bar {
+    padding: 48px 0;
+    background: var(--ht-white);
+    border-top: 1px solid rgba(0,0,0,.04);
+    border-bottom: 1px solid rgba(0,0,0,.04);
+  }
+  .trust-label {
+    text-align: center; font-family: var(--ht-font-display);
+    font-size: .82rem; font-weight: 600; color: var(--ht-muted);
+    text-transform: uppercase; letter-spacing: .1em;
+    margin-bottom: 28px;
+  }
+  .trust-logos {
+    display: flex; align-items: center; justify-content: center;
+    gap: 40px; flex-wrap: wrap;
+  }
+  .trust-logos img {
+    height: 28px; width: auto;
+    filter: grayscale(100%) opacity(.45);
+    transition: all .3s ease;
+  }
+  .trust-logos img:hover {
+    filter: grayscale(0%) opacity(1);
+  }
+
+  @media (max-width: 768px) {
+    .trust-logos { gap: 24px; }
+    .trust-logos img { height: 22px; }
+  }
+</style>

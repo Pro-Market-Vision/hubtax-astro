@@ -1,0 +1,85 @@
+---
+const faqs = [
+  {
+    q: 'What is HubTax Tax Manager (HTM)?',
+    a: 'HTM is a comprehensive, AI-powered tax management solution designed to streamline and organize your tax obligations. It offers features like a dynamic tax calendar, notice tracking with OCR scanning, document management, and intelligent knowledge base research to ensure you never miss a tax deadline.',
+  },
+  {
+    q: 'Who can benefit from using HTM?',
+    a: 'HTM is ideal for businesses of all sizes, tax professionals, compliance officers, and corporate tax departments looking to simplify their tax management processes and ensure timely compliance. Our AI-powered tools save hours of manual work each week.',
+  },
+  {
+    q: 'How does AI enhance HubTax?',
+    a: 'HubTax leverages AI across multiple features: OCR scanning automatically extracts data from tax documents and notices, our knowledge base uses AI to research and surface relevant tax regulations, and smart automation handles routine tasks like deadline reminders and document categorization.',
+  },
+  {
+    q: 'Can HTM handle different types of tax returns?',
+    a: 'Yes, HTM can manage various types of tax returns including sales tax, corporate income tax, property tax, and more. It offers customizable templates for different tax types and jurisdictions, with AI-assisted preparation to ensure accuracy.',
+  },
+  {
+    q: 'What is the notice management feature?',
+    a: 'The notice management feature uses AI-powered OCR to scan and digitize tax notices, automatically extracting key dates, amounts, and required actions. It helps users track and manage notices from various jurisdictions, ensuring timely responses and avoiding penalties.',
+  },
+  {
+    q: 'How does the document management system work?',
+    a: 'The document management system allows users to securely store, organize, and retrieve tax-related documents. AI automatically categorizes uploads, extracts metadata via OCR, and links documents to specific returns, notices, and payments for easy access.',
+  },
+];
+---
+
+<section class="section section-alt fade-up" id="faq">
+  <div class="container">
+    <div class="faq-header">
+      <span class="label">FAQ</span>
+      <h2>Frequently asked<br/><span class="gradient-text">questions</span></h2>
+    </div>
+    <div class="faq-list">
+      {faqs.map((faq, i) => (
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>{faq.q}</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>{faq.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-header { text-align: center; margin-bottom: 48px; }
+  .faq-list { max-width: 720px; margin: 0 auto; }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(0,0,0,.06);
+  }
+  .faq-item:first-child {
+    border-top: 1px solid rgba(0,0,0,.06);
+  }
+
+  .faq-question {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 20px 0; cursor: pointer;
+    font-family: var(--ht-font-display); font-size: 1.02rem; font-weight: 600;
+    color: var(--ht-navy); list-style: none;
+    transition: color .2s ease;
+  }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question:hover { color: var(--ht-blue); }
+
+  .faq-chevron {
+    flex-shrink: 0; transition: transform .3s ease;
+    color: var(--ht-muted);
+  }
+  .faq-item[open] .faq-chevron { transform: rotate(180deg); }
+
+  .faq-answer {
+    padding: 0 0 20px;
+  }
+  .faq-answer p {
+    font-size: .92rem; line-height: 1.7; color: var(--ht-text);
+  }
+</style>

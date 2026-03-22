@@ -1,0 +1,119 @@
+---
+---
+
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+    <div class="hero-grid-pattern"></div>
+  </div>
+  <div class="container hero-split">
+    <div class="hero-text fade-up">
+      <div class="label">
+        <span class="badge-dot"></span>
+        <span>AI-Powered Tax Management</span>
+      </div>
+      <h1>Simplify Your Tax Management<br/><span class="gradient-text">with HubTax</span></h1>
+      <p class="hero-sub">Built for tax and accounting professionals — organize returns, notices, and tasks effortlessly. AI-powered OCR scanning, knowledge base research, and smart automation save you hours every week.</p>
+      <div class="hero-ctas">
+        <a href="/book-a-demo" class="btn btn-primary btn-lg">Book a Demo</a>
+        <a href="https://app.hubtax.io/register" class="btn btn-ghost btn-lg">Sign Up Free</a>
+      </div>
+      <div class="hero-social-proof">
+        <div class="hero-stars">
+          {Array(5).fill(0).map(() => (
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          ))}
+        </div>
+        <span>Trusted by 225,000+ customers</span>
+      </div>
+    </div>
+    <div class="hero-visual fade-up">
+      <div class="hero-dashboard">
+        <img src="/images/hubtax-hero-img.png" alt="HubTax Dashboard" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative; overflow: hidden;
+    padding: 56px 0 64px; background: var(--ht-white);
+  }
+  .hero-bg { position: absolute; inset: 0; pointer-events: none; }
+  .hero-glow {
+    position: absolute; top: -180px; right: -80px;
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(4,107,210,.1) 0%, rgba(6,182,212,.05) 40%, transparent 65%);
+  }
+  .hero-glow2 {
+    position: absolute; bottom: -250px; left: -150px;
+    width: 900px; height: 900px;
+    background: radial-gradient(circle, rgba(4,107,210,.06) 0%, transparent 55%);
+  }
+  .hero-grid-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(4,107,210,.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(4,107,210,.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  }
+
+  .hero-split {
+    position: relative; z-index: 2;
+    display: grid; grid-template-columns: 1fr 1.1fr;
+    gap: 48px; align-items: center;
+  }
+  .hero-text { text-align: left; }
+  .hero-text .label { margin-bottom: 16px; }
+  .badge-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #22c55e; display: inline-block;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .4; }
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 800;
+    letter-spacing: -.045em; line-height: 1.08; margin-bottom: 16px;
+  }
+  .hero-sub {
+    font-size: clamp(1rem, 1.6vw, 1.1rem); color: var(--ht-text);
+    max-width: 520px; line-height: 1.7; margin-bottom: 24px;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
+  .btn-lg { padding: 14px 32px !important; font-size: 1rem !important; }
+
+  .hero-social-proof { display: flex; align-items: center; gap: 10px; }
+  .hero-stars { display: flex; gap: 2px; }
+  .hero-social-proof span { font-size: .88rem; color: var(--ht-muted); font-weight: 500; }
+
+  .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+  .hero-dashboard {
+    position: relative; border-radius: 16px; overflow: hidden;
+    box-shadow:
+      0 24px 60px rgba(15,23,42,.15),
+      0 0 0 1px rgba(4,107,210,.1),
+      0 0 40px rgba(4,107,210,.06);
+  }
+  .hero-dashboard img {
+    width: 100%; height: auto; display: block;
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 44px 0 40px; }
+    .hero-split { grid-template-columns: 1fr; gap: 32px; }
+    .hero-text { text-align: center; }
+    .hero h1 { font-size: clamp(2rem, 7vw, 2.6rem); }
+    .hero-sub { margin-left: auto; margin-right: auto; }
+    .hero-ctas { justify-content: center; }
+    .hero-social-proof { justify-content: center; }
+    .btn-lg { padding: 12px 24px !important; font-size: .95rem !important; }
+  }
+</style>

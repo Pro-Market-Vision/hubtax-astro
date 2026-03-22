@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BenefitsSection from '../components/BenefitsSection.astro';
+import FeaturesSection from '../components/FeaturesSection.astro';
+import CtaSection from '../components/CtaSection.astro';
+---
+
+<Layout title="About Us — HubTax" description="HubTax is your comprehensive AI-powered tax management solution designed to streamline and organize your tax obligations with intelligent automation.">
+  <Header />
+
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <div class="page-hero-glow"></div>
+    </div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="page-hero-content fade-up">
+        <span class="label">About Us</span>
+        <h1>Your premier destination for<br/><span class="gradient-text">intelligent tax services</span></h1>
+        <p class="page-hero-sub">HubTax is your comprehensive AI-powered tax management solution designed to streamline and organize your tax obligations. With our robust tax calendar, notice tracking with OCR, and secure document storage, you can ensure that every tax deadline is met and every important document is safely managed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-up">
+    <div class="container">
+      <div class="about-split">
+        <div class="about-text">
+          <h2>Experience the <span class="gradient-text">HubTax difference</span></h2>
+          <p>With years of experience and a team of dedicated professionals, we specialize in providing personalized, AI-enhanced tax solutions to meet the unique needs of individuals and businesses alike.</p>
+          <p>Our commitment to accuracy, integrity, and customer satisfaction ensures that your tax concerns are handled with the utmost care and expertise. At HubTax, we leverage cutting-edge AI technology — including OCR document scanning, intelligent knowledge base research, and automated workflows — to simplify the complexities of taxes, offering peace of mind and financial clarity.</p>
+          <p>Join us and experience the difference that AI-powered professional tax services can make.</p>
+          <div class="about-ctas">
+            <a href="/book-a-demo" class="btn btn-primary">Book a Demo</a>
+            <a href="/why-hubtax" class="btn btn-ghost">Why HubTax &rarr;</a>
+          </div>
+        </div>
+        <div class="about-image">
+          <img src="/images/pngwing.com-38.png" alt="HubTax Platform" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <BenefitsSection />
+  <FeaturesSection />
+  <CtaSection />
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    position: relative; overflow: hidden;
+    padding: 120px 0 64px; background: var(--ht-white);
+    text-align: center;
+  }
+  .page-hero-bg { position: absolute; inset: 0; pointer-events: none; }
+  .page-hero-glow {
+    position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(circle, rgba(4,107,210,.08) 0%, transparent 60%);
+  }
+  .page-hero-content { max-width: 720px; margin: 0 auto; }
+  .page-hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
+    letter-spacing: -.04em; margin-bottom: 16px;
+  }
+  .page-hero-sub {
+    font-size: 1.05rem; color: var(--ht-text); line-height: 1.7;
+    max-width: 620px; margin: 0 auto;
+  }
+
+  .about-split {
+    display: grid; grid-template-columns: 1.2fr 1fr;
+    gap: 64px; align-items: center;
+  }
+  .about-text h2 { font-size: 1.8rem; margin-bottom: 20px; }
+  .about-text p { margin-bottom: 16px; font-size: .95rem; line-height: 1.7; }
+  .about-ctas { display: flex; gap: 14px; margin-top: 24px; }
+  .about-image {
+    border-radius: 16px; overflow: hidden;
+  }
+  .about-image img { width: 100%; }
+
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1); }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    .page-hero { padding: 100px 0 48px; }
+    .about-split { grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  });
+</script>

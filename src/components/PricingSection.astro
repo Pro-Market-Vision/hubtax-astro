@@ -1,0 +1,77 @@
+---
+---
+
+<section class="section fade-up" id="pricing">
+  <div class="container" style="text-align:center;">
+    <span class="label">Pricing</span>
+    <h2>Get started<br/><span class="gradient-text">for free</span></h2>
+    <p class="section-desc">Everything you need to manage your tax obligations — with AI-powered tools included from day one.</p>
+    <div class="pricing-card">
+      <div class="pricing-header">
+        <span class="pricing-label">Starter Plan</span>
+        <div class="pricing-price"><span class="price-amount">Free</span></div>
+        <p class="pricing-trial">No credit card required · Get started instantly</p>
+      </div>
+      <ul class="pricing-features">
+        <li><span class="pricing-check">&#10003;</span><div><strong>AI OCR Document Scanning</strong><span>Instantly extract data from tax documents</span></div></li>
+        <li><span class="pricing-check">&#10003;</span><div><strong>Tax Calendar & Alerts</strong><span>Never miss a deadline with smart reminders</span></div></li>
+        <li><span class="pricing-check">&#10003;</span><div><strong>Notice Tracking</strong><span>AI-powered scanning and action recommendations</span></div></li>
+        <li><span class="pricing-check">&#10003;</span><div><strong>Custom Templates</strong><span>Pre-built templates for common tax types</span></div></li>
+        <li><span class="pricing-check">&#10003;</span><div><strong>Knowledge Base Research</strong><span>AI surfaces relevant regulations and guidance</span></div></li>
+        <li><span class="pricing-check">&#10003;</span><div><strong>Dashboards & Reporting</strong><span>Visual overview of your entire tax status</span></div></li>
+        <li><span class="pricing-check">&#10003;</span><div><strong>Secure Document Storage</strong><span>Encrypted, organized, and always accessible</span></div></li>
+      </ul>
+      <a href="https://app.hubtax.io/register" class="btn btn-primary" style="width:100%;justify-content:center;">Sign Up Free</a>
+      <a href="/book-a-demo" class="pricing-trial-link">Or schedule a demo first &rarr;</a>
+      <p class="pricing-note">Enterprise plans available · Contact us for custom pricing</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-desc { max-width: 620px; margin: 12px auto 32px; font-size: 1.02rem; color: var(--ht-text); }
+
+  .pricing-card {
+    max-width: 480px; margin: 0 auto; padding: 36px;
+    border-radius: 20px; background: var(--ht-white);
+    border: 1px solid rgba(4,107,210,.12);
+    box-shadow: 0 20px 56px rgba(4,107,210,.1), 0 0 0 1px rgba(255,255,255,.8) inset;
+    text-align: left; position: relative;
+  }
+  .pricing-card::before {
+    content: ''; position: absolute; top: -1px; left: 40px; right: 40px; height: 3px;
+    background: linear-gradient(90deg, var(--ht-blue), var(--ht-accent));
+    border-radius: 0 0 3px 3px;
+  }
+  .pricing-header { text-align: center; margin-bottom: 28px; }
+  .pricing-label { font-family: var(--ht-font-display); font-size: .8rem; font-weight: 600; color: var(--ht-blue); text-transform: uppercase; letter-spacing: .08em; }
+  .pricing-price { margin: 12px 0 8px; }
+  .price-amount { font-family: var(--ht-font-display); font-size: 3.4rem; font-weight: 800; color: var(--ht-navy); letter-spacing: -.03em; }
+  .pricing-trial { font-size: .83rem; color: var(--ht-muted); }
+  .pricing-features { list-style: none; margin-bottom: 28px; }
+  .pricing-features li {
+    padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,.05);
+    font-size: .9rem; color: var(--ht-text);
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .pricing-features li:last-child { border-bottom: none; }
+  .pricing-check {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: rgba(4,107,210,.08); color: var(--ht-blue);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .65rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .pricing-features strong { display: block; color: var(--ht-navy); font-size: .9rem; }
+  .pricing-features span { font-size: .82rem; color: var(--ht-muted); display: block; margin-top: 2px; }
+  .pricing-trial-link {
+    display: block; text-align: center; margin-top: 12px;
+    font-family: var(--ht-font-display); font-size: .85rem; font-weight: 600;
+    color: var(--ht-blue); transition: color .2s ease;
+  }
+  .pricing-trial-link:hover { color: var(--ht-blue-dark); }
+  .pricing-note { font-size: .78rem; color: var(--ht-muted); margin-top: 12px; text-align: center; }
+
+  @media (max-width: 768px) {
+    .pricing-card { padding: 28px; }
+  }
+</style>

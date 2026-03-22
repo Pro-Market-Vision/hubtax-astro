@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.astro';
+import TrustBar from '../components/TrustBar.astro';
+import BenefitsSection from '../components/BenefitsSection.astro';
+import FeaturesSection from '../components/FeaturesSection.astro';
+import TestimonialsSection from '../components/TestimonialsSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import PricingSection from '../components/PricingSection.astro';
+import CtaSection from '../components/CtaSection.astro';
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "HubTax",
+  "url": "https://hubtax.io",
+  "logo": "https://hubtax.io/images/hubtax-logo.png",
+  "description": "AI-powered tax management platform. Simplify tax returns, notices, and tasks with intelligent OCR, knowledge base research, and automated workflows.",
+  "sameAs": [],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "email": "ruben@hubtax.io"
+  }
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "HubTax",
+  "url": "https://hubtax.io",
+  "description": "AI-powered corporate tax management platform."
+};
+
+const homepageSchema = [orgSchema, websiteSchema];
+---
+
+<Layout title="HubTax — AI-Powered Corporate Tax Management" schema={homepageSchema}>
+  <Header />
+  <HeroSection />
+  <TrustBar />
+  <BenefitsSection />
+  <FeaturesSection />
+  <PricingSection />
+  <TestimonialsSection />
+  <FaqSection />
+  <CtaSection />
+  <Footer />
+</Layout>
+
+<style>
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1); }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  });
+</script>

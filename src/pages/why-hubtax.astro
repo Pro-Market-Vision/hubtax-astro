@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BenefitsSection from '../components/BenefitsSection.astro';
+import FeaturesSection from '../components/FeaturesSection.astro';
+import CtaSection from '../components/CtaSection.astro';
+
+const differentiators = [
+  {
+    icon: '&#128640;',
+    title: 'AI-Powered Expertise',
+    desc: 'Our team combines seasoned tax professionals with cutting-edge AI technology. We use OCR scanning, intelligent knowledge base research, and automated workflows to deliver faster, more accurate results than traditional methods.',
+  },
+  {
+    icon: '&#127919;',
+    title: 'Personalized Service',
+    desc: 'At HubTax, we understand that every client is unique. Our AI learns your specific tax situation and tailors recommendations to meet your individual or business needs, providing customized strategies that maximize your tax benefits.',
+  },
+  {
+    icon: '&#128736;',
+    title: 'Comprehensive Solutions',
+    desc: 'From tax preparation and planning to audit support and consultation, we offer a wide range of AI-enhanced services to cover all aspects of your tax requirements. Whether you\'re an individual, a small business, or a large corporation, we have the tools to assist you.',
+  },
+];
+---
+
+<Layout title="Why HubTax — AI-Powered Tax Management" description="Discover why tax professionals choose HubTax. AI-powered OCR, knowledge base research, and smart automation for modern tax management.">
+  <Header />
+
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <div class="page-hero-glow"></div>
+    </div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="page-hero-content fade-up">
+        <span class="label">Why HubTax</span>
+        <h1>Why tax professionals<br/><span class="gradient-text">choose HubTax</span></h1>
+        <p class="page-hero-sub">Partner with a platform that combines expert tax knowledge with the power of AI to deliver unmatched efficiency and accuracy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-up">
+    <div class="container">
+      <div class="diff-grid">
+        {differentiators.map(d => (
+          <div class="diff-card">
+            <div class="diff-icon" set:html={d.icon}></div>
+            <h3>{d.title}</h3>
+            <p>{d.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt fade-up">
+    <div class="container">
+      <div class="partner-split">
+        <div class="partner-text">
+          <span class="label">Your Tax Partner</span>
+          <h2>Partner with HubTax for<br/><span class="gradient-text">expert AI-powered tax solutions</span></h2>
+          <p>When you partner with HubTax, you're choosing a team that stays current with the latest tax regulations and leverages AI to stay ahead of the curve. Our commitment to integrity, accuracy, and customer satisfaction drives everything we do.</p>
+          <p>Whether you're an individual navigating personal taxes or a corporation managing complex multi-jurisdiction obligations, HubTax's AI-powered platform has the expertise and technology to guide you every step of the way.</p>
+          <a href="/book-a-demo" class="btn btn-primary" style="margin-top:20px;">Book a Demo</a>
+        </div>
+        <div class="partner-visual">
+          <img src="/images/Hubtax-Pictures-Section-2.png" alt="HubTax Dashboard" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <BenefitsSection />
+  <FeaturesSection />
+  <CtaSection />
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    position: relative; overflow: hidden;
+    padding: 120px 0 64px; background: var(--ht-white);
+    text-align: center;
+  }
+  .page-hero-bg { position: absolute; inset: 0; pointer-events: none; }
+  .page-hero-glow {
+    position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(circle, rgba(4,107,210,.08) 0%, transparent 60%);
+  }
+  .page-hero-content { max-width: 720px; margin: 0 auto; }
+  .page-hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
+    letter-spacing: -.04em; margin-bottom: 16px;
+  }
+  .page-hero-sub {
+    font-size: 1.05rem; color: var(--ht-text); line-height: 1.7;
+    max-width: 580px; margin: 0 auto;
+  }
+
+  .diff-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .diff-card {
+    padding: 36px; border-radius: 18px;
+    background: var(--ht-white);
+    border: 1px solid rgba(0,0,0,.06);
+    transition: all .35s cubic-bezier(.4,0,.2,1);
+    text-align: center;
+  }
+  .diff-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(4,107,210,.1);
+    border-color: rgba(4,107,210,.12);
+  }
+  .diff-icon { font-size: 2.4rem; margin-bottom: 20px; }
+  .diff-card h3 {
+    font-size: 1.2rem; font-weight: 700; color: var(--ht-navy);
+    margin-bottom: 12px;
+  }
+  .diff-card p { font-size: .9rem; line-height: 1.7; color: var(--ht-text); }
+
+  .partner-split {
+    display: grid; grid-template-columns: 1.2fr 1fr;
+    gap: 64px; align-items: center;
+  }
+  .partner-text h2 { font-size: 1.8rem; margin-bottom: 20px; }
+  .partner-text p { font-size: .95rem; line-height: 1.7; margin-bottom: 12px; }
+  .partner-visual {
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 12px 40px rgba(15,23,42,.1);
+  }
+  .partner-visual img { width: 100%; }
+
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1); }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    .page-hero { padding: 100px 0 48px; }
+    .diff-grid { grid-template-columns: 1fr; }
+    .partner-split { grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  });
+</script>

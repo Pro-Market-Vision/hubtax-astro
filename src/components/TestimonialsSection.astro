@@ -1,0 +1,106 @@
+---
+const testimonials = [
+  { name: 'William Singe', role: 'CEO', quote: 'Dealing with tax notices used to be a nightmare, but not anymore with HubTax. The notices tracking feature is incredibly helpful. It keeps all our notices organized and easy to follow. The peace of mind knowing that we\'re always on top of our tax obligations is invaluable.' },
+  { name: 'Emily Cooper', role: 'CPA', quote: 'Using HubTax is a breeze. The user interface is intuitive, and the platform is incredibly easy to navigate. I was able to set everything up quickly and without any hassle. The AI-powered OCR saves me hours scanning documents.' },
+  { name: 'Robert Collins', role: 'Tax Manager', quote: 'HubTax has revolutionized how we manage our finances. The organizational benefits are immense. All our tax documents and records are neatly organized and easily accessible. It\'s a relief knowing that everything is in order come tax season.' },
+  { name: 'Elizabeth Garcia', role: 'Tax Director', quote: 'Since using HubTax, our tax filing process has become incredibly streamlined. The AI-powered knowledge base research surfaces answers instantly. All our financial documents are meticulously organized, making tax season stress-free.' },
+];
+---
+
+<section class="section fade-up">
+  <div class="container" style="text-align:center;">
+    <span class="label">Testimonials</span>
+    <h2>Trusted by tax professionals<br/><span class="gradient-text">everywhere</span></h2>
+
+    <!-- Featured testimonial -->
+    <div class="testimonial-featured">
+      <div class="testimonial-featured-inner">
+        <div class="testimonial-featured-quote">
+          <div class="testimonial-stars">
+            {Array(5).fill(0).map(() => (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            ))}
+          </div>
+          <p class="featured-quote-text">"HubTax has transformed our entire tax workflow. The AI features — especially OCR scanning and the intelligent knowledge base — have cut our processing time in half. It's like having an extra team member."</p>
+          <div class="featured-author">
+            <div class="avatar-circle">WS</div>
+            <div>
+              <strong>William Singe</strong>
+              <span>CEO · Enterprise Client</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid of testimonials -->
+    <div class="testimonials-grid">
+      {testimonials.slice(1).map(t => (
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            {Array(5).fill(0).map(() => (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            ))}
+          </div>
+          <p class="testimonial-quote">"{t.quote}"</p>
+          <div class="testimonial-author">
+            <div class="avatar-circle avatar-small">{t.name.split(' ').map(w => w[0]).join('')}</div>
+            <div>
+              <strong>{t.name}</strong>
+              <span>{t.role}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonial-featured { margin-bottom: 24px; }
+  .testimonial-featured-inner {
+    max-width: 680px; margin: 0 auto;
+    padding: 32px 40px; border-radius: 18px;
+    background: linear-gradient(135deg, rgba(4,107,210,.04) 0%, rgba(6,182,212,.05) 100%);
+    border: 1px solid rgba(4,107,210,.1);
+    text-align: left;
+  }
+  .testimonial-stars { display: flex; gap: 2px; margin-bottom: 12px; }
+  .featured-quote-text {
+    font-size: 1.12rem; line-height: 1.65; color: var(--ht-navy);
+    font-weight: 500; margin-bottom: 20px;
+  }
+  .featured-author { display: flex; align-items: center; gap: 12px; }
+  .avatar-circle {
+    width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-family: var(--ht-font-display);
+    font-weight: 700; font-size: .9rem; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--ht-blue), var(--ht-accent));
+  }
+  .avatar-small { width: 36px; height: 36px; font-size: .78rem; }
+  .featured-author strong { display: block; color: var(--ht-navy); font-size: .95rem; }
+  .featured-author span { font-size: .83rem; color: var(--ht-muted); }
+
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; text-align: left; max-width: 960px; margin: 0 auto; }
+  .testimonial-card {
+    padding: 24px 28px; border-radius: 16px;
+    background: var(--ht-white); border: 1px solid rgba(0,0,0,.05);
+    transition: all .35s cubic-bezier(.4,0,.2,1);
+    display: flex; flex-direction: column;
+  }
+  .testimonial-card:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(4,107,210,.1); }
+  .testimonial-quote { font-size: .9rem; line-height: 1.7; margin-bottom: 14px; color: var(--ht-text); flex: 1; }
+  .testimonial-author {
+    display: flex; align-items: center; gap: 10px;
+    border-top: 1px solid rgba(0,0,0,.05); padding-top: 14px;
+  }
+  .testimonial-author strong { display: block; color: var(--ht-navy); font-size: .88rem; }
+  .testimonial-author span { font-size: .76rem; color: var(--ht-muted); }
+
+  @media (max-width: 768px) {
+    .testimonial-featured-inner { padding: 24px 20px; }
+    .featured-quote-text { font-size: 1rem; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+  }
+</style>

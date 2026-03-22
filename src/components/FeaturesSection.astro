@@ -1,0 +1,117 @@
+---
+const features = [
+  {
+    title: 'Secure Network',
+    desc: 'Your tax documents and passwords are stored on our secure network, safeguarded with the latest encryption technologies.',
+    image: '/images/Security-Network.png',
+    alt: 'Secure network dashboard',
+  },
+  {
+    title: 'AI-Powered Notice Tracking',
+    desc: 'Never overlook a tax notice again. AI-driven OCR scans notices instantly, extracts key data, and alerts you with recommended actions.',
+    image: '/images/Tracking-Notice-1.png',
+    alt: 'Notice tracking interface',
+  },
+  {
+    title: 'Smart Returns Management',
+    desc: 'Effortlessly manage tax returns with AI-assisted preparation. Stay informed of filing dates, submission statuses, and compliance tasks.',
+    image: '/images/Manage-Return.png',
+    alt: 'Returns management dashboard',
+  },
+  {
+    title: 'Dashboards & Reporting',
+    desc: 'Gain insights at a glance. AI-powered dashboards provide a comprehensive overview of your tax status, upcoming obligations, and completed tasks.',
+    image: '/images/Hubtax-Pictures-Section-1.png',
+    alt: 'Analytics dashboard',
+  },
+  {
+    title: 'Intelligent Tax Calendar',
+    desc: 'Stay up to date with every tax return and task. AI-powered calendar alerts ensure you\'re always prepared, avoiding last-minute rushes.',
+    image: '/images/Hubtax-Pictures-Section-2.png',
+    alt: 'Tax calendar view',
+  },
+];
+---
+
+<section class="section fade-up" id="features">
+  <div class="container">
+    <div class="features-header">
+      <span class="label">AI-Powered Features</span>
+      <h2>Everything you need,<br/><span class="gradient-text">intelligently automated</span></h2>
+      <p class="features-sub">From OCR document scanning to knowledge base research, HubTax uses AI to optimize every step of your tax workflow.</p>
+    </div>
+    <div class="features-list">
+      {features.map((f, i) => (
+        <div class={`feature-row ${i % 2 === 1 ? 'feature-row-reverse' : ''}`}>
+          <div class="feature-content">
+            <h3>{f.title}</h3>
+            <p>{f.desc}</p>
+            <a href="/book-a-demo" class="feature-link">Learn more &rarr;</a>
+          </div>
+          <div class="feature-image">
+            <img src={f.image} alt={f.alt} loading="lazy" />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features-header { text-align: center; margin-bottom: 48px; }
+  .features-sub { max-width: 560px; margin: 12px auto 0; font-size: .95rem; color: var(--ht-text); line-height: 1.7; }
+
+  .features-list {
+    display: flex; flex-direction: column; gap: 32px;
+  }
+
+  .feature-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 48px; align-items: center;
+    padding: 40px; border-radius: 20px;
+    background: var(--ht-surface);
+    border: 1px solid rgba(0,0,0,.04);
+    transition: all .35s cubic-bezier(.4,0,.2,1);
+  }
+  .feature-row:hover {
+    box-shadow: 0 12px 40px rgba(4,107,210,.08);
+    border-color: rgba(4,107,210,.1);
+  }
+  .feature-row-reverse { direction: rtl; }
+  .feature-row-reverse > * { direction: ltr; }
+
+  .feature-content h3 {
+    font-size: 1.4rem; font-weight: 700; color: var(--ht-navy);
+    margin-bottom: 12px; letter-spacing: -.02em;
+  }
+  .feature-content p {
+    font-size: .95rem; line-height: 1.7; color: var(--ht-text);
+    margin-bottom: 16px;
+  }
+  .feature-link {
+    font-family: var(--ht-font-display); font-size: .88rem; font-weight: 600;
+    color: var(--ht-blue);
+    display: inline-flex; align-items: center; gap: 4px;
+    transition: gap .2s ease;
+  }
+  .feature-link:hover { gap: 8px; }
+
+  .feature-image {
+    border-radius: 14px; overflow: hidden;
+    box-shadow: 0 8px 32px rgba(15,23,42,.08);
+  }
+  .feature-image img {
+    width: 100%; height: auto; display: block;
+    transition: transform .4s ease;
+  }
+  .feature-row:hover .feature-image img {
+    transform: scale(1.03);
+  }
+
+  @media (max-width: 768px) {
+    .feature-row, .feature-row-reverse {
+      grid-template-columns: 1fr; direction: ltr;
+      padding: 24px;
+    }
+  }
+</style>

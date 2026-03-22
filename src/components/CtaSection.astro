@@ -1,0 +1,51 @@
+---
+---
+
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <div class="container" style="text-align:center;position:relative;z-index:2;">
+    <h2>Ready to take control of<br/><span class="cta-gradient-text">your tax management?</span></h2>
+    <p class="cta-sub">Join HubTax today and transform how you manage your tax obligations — powered by AI for speed, accuracy, and peace of mind.</p>
+    <div class="cta-buttons">
+      <a href="/book-a-demo" class="btn btn-white">Book a Demo</a>
+      <a href="https://app.hubtax.io/register" class="btn cta-ghost-btn">Sign Up Free</a>
+    </div>
+    <p class="cta-note">Free to get started · No credit card required · AI-powered from day one</p>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--ht-navy) 0%, #1e3a5f 50%, #0a4a8a 100%);
+    position: relative; overflow: hidden;
+  }
+  .cta-glow {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(4,107,210,.25) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-section h2 { color: #fff; font-size: clamp(1.8rem, 3.5vw, 2.8rem); letter-spacing: -.03em; }
+  .cta-gradient-text {
+    background: linear-gradient(135deg, #60a5fa, #06b6d4, #34d399);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .cta-sub { margin: 16px auto 28px; max-width: 520px; color: rgba(255,255,255,.65); font-size: 1rem; }
+  .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .cta-ghost-btn {
+    background: transparent; color: #fff;
+    border: 1.5px solid rgba(255,255,255,.25);
+  }
+  .cta-ghost-btn:hover {
+    background: rgba(255,255,255,.1);
+    border-color: rgba(255,255,255,.4);
+    transform: translateY(-2px);
+  }
+  .cta-note { margin-top: 16px; font-size: .83rem; color: rgba(255,255,255,.4); }
+
+  @media (max-width: 768px) {
+    .cta-section { padding: 60px 0; }
+  }
+</style>

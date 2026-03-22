@@ -1,0 +1,212 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  schema?: object | object[];
+}
+const { title, description = "AI-powered tax management platform. Simplify tax returns, notices, and tasks with intelligent OCR, knowledge base research, and automated workflows.", canonicalUrl, ogImage = "/images/hubtax-logo.png", schema } = Astro.props;
+const canonical = canonicalUrl || Astro.url.href;
+const siteUrl = "https://hubtax.io";
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>{title}</title>
+  {schema && Array.isArray(schema)
+    ? schema.map(s => <script type="application/ld+json" set:html={JSON.stringify(s)} />)
+    : schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  }
+</head>
+<body>
+  <slot />
+
+  <!-- Sticky mobile Book a Demo bar -->
+  <div class="mobile-sticky-cta" id="mobileStickyBar">
+    <a href="/book-a-demo" class="mobile-sticky-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Book a Demo
+    </a>
+  </div>
+  <script is:inline>
+    (function() {
+      var bar = document.getElementById('mobileStickyBar');
+      if (!bar) return;
+      if (window.location.pathname.indexOf('/book-a-demo') === 0 || window.location.pathname.indexOf('/thank-you') === 0) {
+        bar.style.display = 'none';
+        return;
+      }
+      bar.classList.add('hidden');
+      var shown = false;
+      window.addEventListener('scroll', function() {
+        if (!shown && window.scrollY > 300) {
+          bar.classList.remove('hidden');
+          shown = true;
+        }
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>
+
+<style is:global>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ht-navy: #0f172a;
+    --ht-blue: #046bd2;
+    --ht-blue-dark: #0356a8;
+    --ht-blue-light: #3b8ee8;
+    --ht-accent: #06b6d4;
+    --ht-surface: #f0f7ff;
+    --ht-white: #FFFFFF;
+    --ht-text: #475569;
+    --ht-muted: #94a3b8;
+    --ht-border: rgba(0,0,0,.06);
+    --ht-shadow: rgba(4,107,210,.15);
+    --ht-font-display: 'Space Grotesk', sans-serif;
+    --ht-font-body: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--ht-font-body);
+    color: var(--ht-navy);
+    line-height: 1.65;
+    font-weight: 400;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    background: var(--ht-white);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--ht-font-display);
+    color: var(--ht-navy);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+
+  p { color: var(--ht-text); line-height: 1.7; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; height: auto; display: block; }
+  button { border: none; cursor: pointer; font-family: inherit; background: none; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  .label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--ht-font-display); font-size: .75rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .14em; color: var(--ht-blue);
+    padding: 8px 20px; border-radius: 50px; background: rgba(4,107,210,.06);
+    border: 1px solid rgba(4,107,210,.1); margin-bottom: 24px;
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 32px; border-radius: 12px;
+    font-family: var(--ht-font-display); font-weight: 600; font-size: .95rem;
+    transition: all .3s cubic-bezier(.4,0,.2,1); white-space: nowrap;
+    text-decoration: none; letter-spacing: -.01em;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--ht-blue) 0%, var(--ht-blue-light) 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(4,107,210,.3), 0 1px 2px rgba(0,0,0,.08);
+  }
+  .btn-primary:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(4,107,210,.4), 0 2px 4px rgba(0,0,0,.1);
+    filter: brightness(1.05);
+  }
+
+  .btn-ghost {
+    background: transparent; color: var(--ht-navy);
+    border: 1.5px solid rgba(0,0,0,.1);
+  }
+  .btn-ghost:hover {
+    background: rgba(4,107,210,.05); color: var(--ht-blue);
+    border-color: rgba(4,107,210,.25); transform: translateY(-2px);
+  }
+
+  .btn-white {
+    background: #fff; color: var(--ht-blue);
+    box-shadow: 0 8px 30px rgba(0,0,0,.15);
+    font-weight: 700;
+  }
+  .btn-white:hover {
+    transform: translateY(-3px); box-shadow: 0 14px 44px rgba(0,0,0,.2);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--ht-blue), var(--ht-accent), var(--ht-blue));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section { padding: 100px 0; position: relative; }
+  .section-alt { background: linear-gradient(180deg, var(--ht-surface) 0%, rgba(240,247,255,.5) 100%); }
+
+  /* Sticky mobile Book a Demo bar */
+  .mobile-sticky-cta {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0;
+    z-index: 9989;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+    background: rgba(255,255,255,.95);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(0,0,0,.08);
+    box-shadow: 0 -4px 24px rgba(15,23,42,.08);
+    transition: transform .35s cubic-bezier(.4,0,.2,1), opacity .35s ease;
+  }
+  .mobile-sticky-cta.hidden {
+    transform: translateY(100%); opacity: 0; pointer-events: none;
+  }
+  .mobile-sticky-btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    width: 100%; padding: 14px 24px; border-radius: 12px;
+    font-family: var(--ht-font-display); font-size: 1rem; font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, var(--ht-blue) 0%, var(--ht-blue-light) 100%);
+    box-shadow: 0 4px 20px rgba(4,107,210,.35);
+    transition: all .3s ease;
+    text-decoration: none;
+  }
+  .mobile-sticky-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 28px rgba(4,107,210,.45);
+  }
+  .mobile-sticky-btn svg { flex-shrink: 0; }
+
+  @media (max-width: 768px) {
+    .mobile-sticky-cta { display: block; }
+    .section { padding: 60px 0; }
+    body { padding-bottom: 72px; }
+  }
+</style>

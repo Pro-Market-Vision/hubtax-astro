@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Thank You — HubTax" description="Thank you for booking a demo with HubTax.">
+  <Header />
+
+  <section class="thank-you-hero">
+    <div class="page-hero-bg">
+      <div class="page-hero-glow"></div>
+    </div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="thank-you-content fade-up">
+        <div class="check-circle">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h1>Thank You!</h1>
+        <p class="thank-sub">Thank you for booking a demo with us. We will send you a confirmation email shortly.</p>
+        <p class="thank-contact">If you have any questions or need to reschedule, please email us at <a href="mailto:ruben@hubtax.io">ruben@hubtax.io</a></p>
+        <div class="thank-ctas">
+          <a href="/" class="btn btn-primary">Back to Home</a>
+          <a href="mailto:ruben@hubtax.io" class="btn btn-ghost">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .thank-you-hero {
+    position: relative; overflow: hidden;
+    padding: 160px 0 120px; background: var(--ht-white);
+    text-align: center; min-height: 70vh;
+    display: flex; align-items: center;
+  }
+  .page-hero-bg { position: absolute; inset: 0; pointer-events: none; }
+  .page-hero-glow {
+    position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(circle, rgba(4,107,210,.08) 0%, transparent 60%);
+  }
+  .thank-you-content { max-width: 560px; margin: 0 auto; }
+  .check-circle {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: linear-gradient(135deg, rgba(34,197,94,.1), rgba(4,107,210,.08));
+    border: 2px solid rgba(34,197,94,.2);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 28px; color: #22c55e;
+  }
+  .thank-you-content h1 {
+    font-size: 2.6rem; font-weight: 800; margin-bottom: 16px;
+  }
+  .thank-sub {
+    font-size: 1.1rem; color: var(--ht-text); line-height: 1.7; margin-bottom: 12px;
+  }
+  .thank-contact {
+    font-size: .95rem; color: var(--ht-muted); margin-bottom: 28px;
+  }
+  .thank-contact a { color: var(--ht-blue); font-weight: 600; }
+  .thank-ctas { display: flex; gap: 14px; justify-content: center; }
+
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1); }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  });
+</script>
