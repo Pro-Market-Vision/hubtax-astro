@@ -1,0 +1,141 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Terms of Service — HubTax" description="Read HubTax's Terms of Service. Understand the terms and conditions that govern your use of our AI-powered tax management platform.">
+  <Header />
+
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <div class="page-hero-glow"></div>
+    </div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="page-hero-content fade-up">
+        <span class="label">Legal</span>
+        <h1>Terms of <span class="gradient-text">Service</span></h1>
+        <p class="page-hero-sub">Last updated: April 8, 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-up">
+    <div class="container">
+      <div class="legal-content">
+
+        <h2>1. Acceptance of Terms</h2>
+        <p>By accessing or using the HubTax platform ("Service"), including our website at hubtax.io and the application at app.hubtax.io, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not use the Service.</p>
+
+        <h2>2. Description of Service</h2>
+        <p>HubTax provides an AI-powered tax management platform designed for tax professionals, businesses, and individuals. Our Service includes features such as tax calendar management, notice tracking with OCR scanning, document storage, knowledge base research, dashboards, reporting, and automated workflows.</p>
+        <p>HubTax is a tax management tool and does not provide tax advice, legal advice, or accounting services. You are responsible for verifying the accuracy of all information and for making your own tax-related decisions.</p>
+
+        <h2>3. Account Registration</h2>
+        <p>To use certain features of the Service, you must create an account. You agree to:</p>
+        <ul>
+          <li>Provide accurate, current, and complete registration information</li>
+          <li>Maintain and update your information to keep it accurate and current</li>
+          <li>Maintain the security and confidentiality of your login credentials</li>
+          <li>Accept responsibility for all activities that occur under your account</li>
+          <li>Notify HubTax immediately of any unauthorized use of your account</li>
+        </ul>
+
+        <h2>4. Acceptable Use</h2>
+        <p>You agree not to use the Service to:</p>
+        <ul>
+          <li>Violate any applicable laws, regulations, or third-party rights</li>
+          <li>Upload or transmit viruses, malware, or other harmful code</li>
+          <li>Attempt to gain unauthorized access to the Service or its systems</li>
+          <li>Use the Service for any fraudulent or misleading purposes</li>
+          <li>Reverse engineer, decompile, or disassemble any part of the Service</li>
+          <li>Resell, sublicense, or redistribute the Service without authorization</li>
+        </ul>
+
+        <h2>5. Intellectual Property</h2>
+        <p>The Service and its original content, features, and functionality are owned by HubTax and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws. You retain ownership of any data or documents you upload to the Service.</p>
+
+        <h2>6. Data and Privacy</h2>
+        <p>Your use of the Service is also governed by our <a href="/privacy-policy">Privacy Policy</a>, which describes how we collect, use, and protect your information. By using the Service, you consent to the data practices described in the Privacy Policy.</p>
+
+        <h2>7. AI-Powered Features</h2>
+        <p>Our Service uses artificial intelligence technologies including OCR scanning, knowledge base research, and automated workflows. While we strive for accuracy, AI-generated results may contain errors. You acknowledge that:</p>
+        <ul>
+          <li>AI features are provided as tools to assist, not replace, professional judgment</li>
+          <li>You are responsible for reviewing and verifying all AI-generated outputs</li>
+          <li>HubTax does not guarantee the accuracy of AI-processed data</li>
+        </ul>
+
+        <h2>8. Subscription and Payments</h2>
+        <p>Some features of the Service may require a paid subscription. By subscribing to a paid plan, you agree to pay the applicable fees. Subscription terms, including pricing and renewal terms, will be presented at the time of purchase. HubTax reserves the right to modify pricing with reasonable notice.</p>
+
+        <h2>9. Termination</h2>
+        <p>We may terminate or suspend your account and access to the Service at our sole discretion, without prior notice, for conduct that we believe violates these Terms or is harmful to other users, us, or third parties, or for any other reason. Upon termination, you may request a copy of your data within 30 days.</p>
+
+        <h2>10. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by law, HubTax and its officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses resulting from your use of the Service.</p>
+
+        <h2>11. Disclaimer of Warranties</h2>
+        <p>The Service is provided on an "as is" and "as available" basis without warranties of any kind, whether express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement. HubTax does not warrant that the Service will be uninterrupted, secure, or error-free.</p>
+
+        <h2>12. Changes to Terms</h2>
+        <p>We reserve the right to modify these Terms at any time. We will notify users of material changes by posting the updated Terms on this page and updating the "Last updated" date. Your continued use of the Service after changes are posted constitutes acceptance of the modified Terms.</p>
+
+        <h2>13. Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with the laws of the United States, without regard to conflict of law provisions.</p>
+
+        <h2>14. Contact Us</h2>
+        <p>If you have any questions about these Terms, please contact us at <a href="mailto:ruben@hubtax.io">ruben@hubtax.io</a>.</p>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    position: relative; overflow: hidden;
+    padding: 120px 0 48px; background: var(--ht-white);
+    text-align: center;
+  }
+  .page-hero-bg { position: absolute; inset: 0; pointer-events: none; }
+  .page-hero-glow {
+    position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(circle, rgba(4,107,210,.08) 0%, transparent 60%);
+  }
+  .page-hero-content { max-width: 720px; margin: 0 auto; }
+  .page-hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
+    letter-spacing: -.04em; margin-bottom: 16px;
+  }
+  .page-hero-sub {
+    font-size: .95rem; color: var(--ht-muted); line-height: 1.7;
+  }
+
+  .legal-content { max-width: 720px; margin: 0 auto; }
+  .legal-content h2 {
+    font-size: 1.3rem; font-weight: 700; color: var(--ht-navy);
+    margin: 36px 0 14px; letter-spacing: -.02em;
+  }
+  .legal-content h2:first-child { margin-top: 0; }
+  .legal-content p {
+    font-size: .95rem; line-height: 1.8; color: var(--ht-text);
+    margin-bottom: 16px;
+  }
+  .legal-content ul, .legal-content ol {
+    padding-left: 24px; margin-bottom: 16px;
+  }
+  .legal-content li {
+    font-size: .95rem; line-height: 1.8; color: var(--ht-text);
+    margin-bottom: 8px;
+  }
+  .legal-content a { color: var(--ht-blue); font-weight: 600; }
+  .legal-content a:hover { text-decoration: underline; }
+
+  @media (max-width: 768px) {
+    .page-hero { padding: 100px 0 40px; }
+  }
+</style>

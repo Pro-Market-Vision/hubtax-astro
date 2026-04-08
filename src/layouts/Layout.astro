@@ -5,8 +5,9 @@ interface Props {
   canonicalUrl?: string;
   ogImage?: string;
   schema?: object | object[];
+  robots?: string;
 }
-const { title, description = "AI-powered tax management platform. Simplify tax returns, notices, and tasks with intelligent OCR, knowledge base research, and automated workflows.", canonicalUrl, ogImage = "/images/hubtax-logo.png", schema } = Astro.props;
+const { title, description = "AI-powered tax management platform. Simplify tax returns, notices, and tasks with intelligent OCR, knowledge base research, and automated workflows.", canonicalUrl, ogImage = "/images/hubtax-logo.png", schema, robots = "index, follow" } = Astro.props;
 const canonical = canonicalUrl || Astro.url.href;
 const siteUrl = "https://hubtax.io";
 ---
@@ -16,7 +17,7 @@ const siteUrl = "https://hubtax.io";
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content={robots} />
   <link rel="canonical" href={canonical} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
@@ -42,6 +43,7 @@ const siteUrl = "https://hubtax.io";
 
   <!-- Scroll fade-in observer -->
   <script is:inline>
+    document.documentElement.classList.add('js-ready');
     document.addEventListener('DOMContentLoaded', function() {
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
@@ -66,7 +68,7 @@ const siteUrl = "https://hubtax.io";
     (function() {
       var bar = document.getElementById('mobileStickyBar');
       if (!bar) return;
-      if (window.location.pathname.indexOf('/book-a-demo') === 0 || window.location.pathname.indexOf('/thank-you') === 0) {
+      if (window.location.pathname.indexOf('/book-a-demo') === 0 || window.location.pathname.indexOf('/thank-you') === 0 || window.location.pathname.indexOf('/terms-of-service') === 0 || window.location.pathname.indexOf('/privacy-policy') === 0 || window.location.pathname.indexOf('/404') === 0) {
         bar.style.display = 'none';
         return;
       }
@@ -218,9 +220,9 @@ const siteUrl = "https://hubtax.io";
   }
   .mobile-sticky-btn svg { flex-shrink: 0; }
 
-  /* Scroll fade-in animations */
-  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1); }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  /* Scroll fade-in animations — content visible by default, animated only when JS is available */
+  .js-ready .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1); }
+  .js-ready .fade-up.visible { opacity: 1; transform: translateY(0); }
 
   @media (max-width: 768px) {
     .mobile-sticky-cta { display: block; }
