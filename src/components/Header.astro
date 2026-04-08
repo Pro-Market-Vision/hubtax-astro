@@ -40,6 +40,9 @@ const navLinks = [
 
 <div class="overlay" id="overlay"></div>
 <div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
   <ul class="mobile-links">
     {navLinks.map(link => (
       <li>
@@ -58,9 +61,6 @@ const navLinks = [
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
     <span>Now powered by AI — OCR scanning, smart research & automated workflows</span>
     <a href="/book-a-demo" class="ai-bar-link">See how it works &rarr;</a>
-    <button class="ai-bar-dismiss" id="aiBarClose" aria-label="Dismiss">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 3L3 11M3 3l8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-    </button>
   </div>
 </div>
 
@@ -75,8 +75,11 @@ const navLinks = [
     mobileMenu?.classList.toggle('active');
   }
 
+  const mobileClose = document.getElementById('mobileClose');
+
   hamburger?.addEventListener('click', toggleMenu);
   overlay?.addEventListener('click', toggleMenu);
+  mobileClose?.addEventListener('click', toggleMenu);
   mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', toggleMenu));
 
   // Scroll shadow on navbar
@@ -91,18 +94,6 @@ const navLinks = [
   window.addEventListener('scroll', updateNav, { passive: true });
   updateNav();
 
-  // AI bar dismiss
-  const aiBar = document.getElementById('aiBar');
-  const aiBarClose = document.getElementById('aiBarClose');
-
-  if (localStorage.getItem('ht-ai-bar-dismissed')) {
-    aiBar?.classList.add('dismissed');
-  }
-
-  aiBarClose?.addEventListener('click', () => {
-    aiBar?.classList.add('dismissed');
-    localStorage.setItem('ht-ai-bar-dismissed', '1');
-  });
 </script>
 
 <style>
@@ -197,6 +188,15 @@ const navLinks = [
   }
   :global(.mobile-menu.active) { display: block; transform: translateX(0); }
 
+  :global(.mobile-close) {
+    position: absolute; top: 20px; right: 20px;
+    display: flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(0,0,0,.04); border: none; cursor: pointer;
+    color: var(--ht-navy); transition: all .2s ease;
+  }
+  :global(.mobile-close:hover) { background: rgba(4,107,210,.08); color: var(--ht-blue); }
+
   :global(.mobile-links) {
     list-style: none; margin: 0; padding: 0;
     display: flex; flex-direction: column; gap: 2px;
@@ -238,12 +238,6 @@ const navLinks = [
     padding: 11px 0;
     margin-top: 64px;
     position: relative; z-index: 50;
-    transition: max-height .4s ease, padding .4s ease, opacity .3s ease;
-    overflow: hidden; max-height: 120px;
-  }
-  :global(.ai-bar.dismissed) {
-    max-height: 0; padding: 0; opacity: 0;
-    pointer-events: none; margin-top: 0;
   }
   :global(.ai-bar-inner) {
     display: flex; align-items: center; justify-content: center;
@@ -257,14 +251,6 @@ const navLinks = [
     transition: all .2s; font-size: .84rem; white-space: nowrap;
   }
   :global(.ai-bar-link:hover) { background: rgba(255,255,255,.15); }
-  :global(.ai-bar-dismiss) {
-    display: flex; align-items: center; justify-content: center;
-    color: rgba(255,255,255,.4); cursor: pointer;
-    padding: 4px; margin-left: 4px; border-radius: 4px;
-    transition: all .2s; background: none; border: none;
-    flex-shrink: 0;
-  }
-  :global(.ai-bar-dismiss:hover) { color: #fff; background: rgba(255,255,255,.1); }
 
   @media (max-width: 768px) {
     .nav-inner { padding: 0 16px; }
@@ -272,15 +258,12 @@ const navLinks = [
     .nav-logo img { height: 28px; }
     .nav-links, .nav-actions { display: none; }
     .mobile-actions { display: flex; }
-    :global(.ai-bar) { margin-top: 56px; padding: 14px 0 16px; }
+    :global(.ai-bar) { margin-top: 56px; padding: 10px 0; }
     :global(.ai-bar-inner) {
-      font-size: .82rem; gap: 8px; text-align: center;
-      flex-direction: column; align-items: center;
+      font-size: .78rem; gap: 6px; text-align: center;
+      flex-wrap: wrap; justify-content: center;
     }
-    :global(.ai-bar-inner > span) { line-height: 1.4; }
-    :global(.ai-bar-link) { margin-top: 2px; padding: 7px 18px; font-size: .82rem; }
-    :global(.ai-bar-dismiss) {
-      position: absolute; top: 8px; right: 12px;
-    }
+    :global(.ai-bar-inner svg) { display: none; }
+    :global(.ai-bar-link) { font-size: .78rem; padding: 5px 12px; }
   }
 </style>
